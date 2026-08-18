@@ -64,8 +64,11 @@ jobs:
             --no-interaction --no-update
           composer update --prefer-dist --no-interaction --no-progress
 
+      # `composer show` takes at most one package name, so grep the full list
+      # rather than passing several. `|| true` keeps a diagnostic step from
+      # ever failing the build — the tests decide that, not the logging.
       - name: Show resolved versions
-        run: composer show laravel/framework orchestra/testbench phpunit/phpunit
+        run: composer show | grep -E 'laravel/framework|orchestra/testbench|phpunit/phpunit' || true
 
       - name: Run tests
         run: vendor/bin/phpunit
