@@ -18,21 +18,31 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          # Laravel 10 and 11 are past security support, so every release of
+          # both now carries unpatched advisories. Composer refuses to resolve
+          # advisory-affected packages by default, which makes these test
+          # environments impossible to build without opting out. See the
+          # "Allow EOL framework" step.
           - php: '8.2'
             laravel: '10.*'
             testbench: '8.*'
+            eol: true
           - php: '8.3'
             laravel: '10.*'
             testbench: '8.*'
+            eol: true
           - php: '8.2'
             laravel: '11.*'
             testbench: '9.*'
+            eol: true
           - php: '8.3'
             laravel: '11.*'
             testbench: '9.*'
+            eol: true
           - php: '8.4'
             laravel: '11.*'
             testbench: '9.*'
+            eol: true
           - php: '8.2'
             laravel: '12.*'
             testbench: '10.*'
@@ -53,6 +63,22 @@ jobs:
           php-version: ${{ matrix.php }}
           extensions: dom, curl, libxml, mbstring, zip, pdo, sqlite, pdo_sqlite
           coverage: none
+
+      # Scoped to the EOL rows on purpose: Laravel 12 keeps the protection, so
+      # a genuine advisory against a supported version still stops the build.
+      #
+      # This only affects building a throwaway CI environment. An application
+      # already running Laravel 10 or 11 has the framework installed and never
+      # re-resolves it, so the block never fires there — and the advisory is
+      # against Laravel, not against this package.
+      - name: Allow EOL framework versions to resolve
+        if: matrix.eol
+        run: |
+          php -r '$f = "composer.json";
+            $j = json_decode(file_get_contents($f), true);
+            $j["config"]["policy"]["advisories"]["block"] = false;
+            file_put_contents($f, json_encode($j, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . "\n");'
+          composer validate --no-check-all --no-check-publish
 
       - name: Install dependencies
         run: |

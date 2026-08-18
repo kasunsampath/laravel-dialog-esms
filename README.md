@@ -60,6 +60,12 @@ suppression and quiet hours.
 - PHP 8.2+
 - Laravel 10, 11, or 12
 
+The test suite runs against all three on every push. Note that **Laravel 10 and 11 are both past
+security support** and every release of each now carries unpatched advisories, so recent Composer
+versions refuse to resolve them from scratch. That does not stop this package working on an app
+already running them — which is why they are still supported and still tested — but the framework
+itself is the thing to upgrade, and no package can fix that for you.
+
 ## Installation
 
 ```bash
