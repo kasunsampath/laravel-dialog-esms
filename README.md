@@ -1,5 +1,10 @@
 # Laravel Dialog eSMS
 
+[![tests](https://github.com/kasunsampath/laravel-dialog-esms/actions/workflows/tests.yml/badge.svg)](https://github.com/kasunsampath/laravel-dialog-esms/actions/workflows/tests.yml)
+[![packagist](https://img.shields.io/packagist/v/kasunsampath/laravel-dialog-esms.svg)](https://packagist.org/packages/kasunsampath/laravel-dialog-esms)
+[![downloads](https://img.shields.io/packagist/dt/kasunsampath/laravel-dialog-esms.svg)](https://packagist.org/packages/kasunsampath/laravel-dialog-esms)
+[![license](https://img.shields.io/packagist/l/kasunsampath/laravel-dialog-esms.svg)](LICENSE.md)
+
 Laravel integration for [Dialog eSMS](https://e-sms.dialog.lk) — Sri Lanka's Dialog Axiata bulk SMS gateway.
 
 Sending, bulk campaigns, wallet balance, delivery receipts, a notification channel, and a test fake.

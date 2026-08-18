@@ -5,7 +5,7 @@ All notable changes to `kasunsampath/laravel-dialog-esms` will be documented her
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.0.0] - 2026-08-18
 
 ### Added
 
@@ -55,3 +55,5 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - `Campaign.scheduled_for` was stored in the promotional timezone but read back as the application
   timezone, so a campaign deferred to 08:00 Asia/Colombo persisted as 13:30 — five and a half hours
   late. The queued job fired correctly either way; only the recorded schedule was wrong.
+
+[1.0.0]: https://github.com/kasunsampath/laravel-dialog-esms/releases/tag/v1.0.0
