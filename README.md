@@ -186,6 +186,9 @@ A 200-character Sinhala promotion is three messages. To 10,000 people that is
 **30,000 billable messages**, not 10,000. Neither the request nor the response
 mentions this anywhere.
 
+At a measured LKR 0.57 per segment that is the difference between LKR 5,700 and
+**LKR 17,100** for one campaign — and nothing warns you before or after.
+
 ```php
 $estimate = DialogEsms::estimate($message, recipients: 10_000);
 
@@ -201,9 +204,13 @@ From the command line:
 php artisan dialog-esms:estimate "Sale ends Friday" --recipients=5000 --rate=0.35
 ```
 
-> The segmentation maths is standard (GSM 03.38). Whether Dialog **bills** per
-> segment is not something this package can verify — check your rate card before
-> trusting a cost figure.
+**Dialog bills per segment — measured, not assumed.** On a live account, a one-segment message cost
+LKR 0.57 and a 200-character two-segment message cost LKR 1.14, exactly double, confirmed against
+the wallet balance before and after. `billableMessages` is therefore the number to multiply by your
+rate.
+
+Rates vary by account, so pass your own with `--rate`; what is settled is that the *multiplier* is
+segments, not messages.
 
 ### The accidental-Unicode trap
 

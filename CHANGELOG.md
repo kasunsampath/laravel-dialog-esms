@@ -5,6 +5,16 @@ All notable changes to `kasunsampath/laravel-dialog-esms` will be documented her
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- Documentation only. Confirmed by measurement against a live account that **Dialog bills per
+  segment**: a one-segment message cost LKR 0.57 and a 200-character two-segment message cost
+  LKR 1.14, exactly double. This was previously flagged as unverified, with a caution to check your
+  rate card. The segmentation maths was never in doubt (GSM 03.38); whether it drove billing was.
+  It does.
+
 ## [1.0.2] - 2026-08-18
 
 ### Added
