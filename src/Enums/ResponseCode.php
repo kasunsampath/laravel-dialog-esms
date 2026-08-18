@@ -26,6 +26,14 @@ namespace KasunSampath\DialogEsms\Enums;
  *     for a credentials problem that does not exist.
  *   - 2008 is the actual out-of-credit code.
  *
+ * 2012 appears in no published table anywhere, including the independent
+ * implementation above. It was determined 2026-08-18 by a controlled test
+ * against a live account: with every other parameter byte-identical, the mask
+ * `Jothishya` returned 2012 while `JOTHISHYA` returned 1. **The sender mask is
+ * matched case-sensitively**, and a mask that differs only in capitalisation
+ * from the registered one is rejected exactly like one that was never
+ * registered. Nothing in the response says the mask is at fault.
+ *
  * Do not edit these descriptions without a reproducible observation.
  */
 enum ResponseCode: string
@@ -42,6 +50,7 @@ enum ResponseCode: string
     case NoValidNumbers = '2009';
     case PackagingNotPermitted = '2010';
     case TransactionalError = '2011';
+    case InvalidSenderMask = '2012';
 
     /**
      * Human-readable explanation of the code.
@@ -61,6 +70,7 @@ enum ResponseCode: string
             self::NoValidNumbers => 'No valid numbers remained after removing mask-blocked numbers',
             self::PackagingNotPermitted => 'Not eligible to consume packaging',
             self::TransactionalError => 'Transactional error',
+            self::InvalidSenderMask => 'Sender mask (source_address) is not registered on this account, or its capitalisation does not match exactly',
         };
     }
 
@@ -85,6 +95,21 @@ enum ResponseCode: string
     public function isBillingIssue(): bool
     {
         return $this === self::InsufficientBalance || $this === self::PackagingNotPermitted;
+    }
+
+    /**
+     * Whether the failure is a configuration problem the caller can fix.
+     *
+     * Worth separating from a billing problem: topping up the wallet will
+     * never clear these, and they fail identically on every message until the
+     * configuration changes.
+     */
+    public function isConfigurationIssue(): bool
+    {
+        return match ($this) {
+            self::InvalidKey, self::InvalidSenderMask, self::GetRequestsNotPermitted => true,
+            default => false,
+        };
     }
 
     /**

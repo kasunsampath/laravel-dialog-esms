@@ -5,6 +5,23 @@ All notable changes to `kasunsampath/laravel-dialog-esms` will be documented her
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2026-08-18
+
+### Added
+
+- `2012` identified and added to `ResponseCode` as `InvalidSenderMask`. Determined by controlled
+  test against a live account: with every other parameter byte-identical, `source_address=Jothishya`
+  returned `2012` and `source_address=JOTHISHYA` returned `1`. **The sender mask is matched
+  case-sensitively**, and a mask differing only in capitalisation is rejected exactly like one that
+  was never registered, with nothing in the response pointing at the mask.
+
+  It appears in no published table, including the independent implementation the rest of this table
+  was corroborated against.
+
+- `ResponseCode::isConfigurationIssue()`, separating faults the caller can fix (`2006`, `2007`,
+  `2012`) from billing problems. Topping up a wallet never clears a bad mask, and the two were
+  previously indistinguishable to calling code.
+
 ## [1.0.1] - 2026-08-18
 
 ### Fixed
@@ -73,5 +90,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   timezone, so a campaign deferred to 08:00 Asia/Colombo persisted as 13:30 — five and a half hours
   late. The queued job fired correctly either way; only the recorded schedule was wrong.
 
+[1.0.2]: https://github.com/kasunsampath/laravel-dialog-esms/releases/tag/v1.0.2
 [1.0.1]: https://github.com/kasunsampath/laravel-dialog-esms/releases/tag/v1.0.1
 [1.0.0]: https://github.com/kasunsampath/laravel-dialog-esms/releases/tag/v1.0.0

@@ -37,6 +37,34 @@ class ResponseCodeTest extends TestCase
         $this->assertTrue(ResponseCode::InsufficientBalance->isBillingIssue());
     }
 
+    public function test_2012_is_a_sender_mask_problem(): void
+    {
+        // Established by controlled test: same request, mask `Jothishya` gave
+        // 2012 and `JOTHISHYA` gave 1. The mask is case-sensitive and nothing
+        // in the response points at it.
+        $this->assertSame(ResponseCode::InvalidSenderMask, ResponseCode::from('2012'));
+        $this->assertStringContainsString('mask', ResponseCode::InvalidSenderMask->message());
+        $this->assertStringContainsString('capitalisation', ResponseCode::InvalidSenderMask->message());
+    }
+
+    public function test_2012_is_configuration_not_billing_and_never_retryable(): void
+    {
+        // Topping up the wallet will never clear it, and every retry with the
+        // same mask fails identically.
+        $this->assertTrue(ResponseCode::InvalidSenderMask->isConfigurationIssue());
+        $this->assertFalse(ResponseCode::InvalidSenderMask->isBillingIssue());
+        $this->assertFalse(ResponseCode::InvalidSenderMask->isRetryable());
+    }
+
+    public function test_configuration_issues_are_distinguished_from_billing(): void
+    {
+        $this->assertTrue(ResponseCode::InvalidKey->isConfigurationIssue());
+        $this->assertTrue(ResponseCode::GetRequestsNotPermitted->isConfigurationIssue());
+
+        $this->assertFalse(ResponseCode::InsufficientBalance->isConfigurationIssue());
+        $this->assertTrue(ResponseCode::InsufficientBalance->isBillingIssue());
+    }
+
     public function test_unknown_codes_do_not_resolve_to_a_case(): void
     {
         $this->assertNull(ResponseCode::fromResponse('9999'));

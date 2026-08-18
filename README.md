@@ -37,6 +37,7 @@ the piece that silently breaks delivery tracking, and it is the main reason this
 | The send response contains **no message ID** | You cannot correlate a delivery receipt by ID. It has to be done by phone number. |
 | Delivery receipts arrive as a **GET**, not a POST | A `Route::post` webhook answers 405 and every receipt is lost. Nothing looks broken — messages just sit at "sent" forever. |
 | Balance returns `1\|1234.5600`, pipe-delimited | Not JSON either. On failure there is no pipe at all. |
+| The **sender mask is case-sensitive** | `Jothishya` and `JOTHISHYA` are different masks. The wrong case returns `2012` and nothing says the mask is why. |
 | There is **no signing scheme** for the callback | Enabling signature verification with an invented secret rejects every genuine receipt. |
 
 This package encodes all of that so you don't have to rediscover it.
@@ -439,12 +440,21 @@ try {
 | `2010` | Not eligible to consume packaging |
 | `2011` | Transactional error (transient — retried automatically) |
 
-Codes outside this list exist. **`2012` has been observed in production** and is documented
-nowhere — not by Dialog, not by any other implementation. Probing established what it is *not*: it
-is unaffected by the sender mask, and it fires only after `esmsqk`, `list` and `message` have each
-validated (those still return `2007`, `2005` and `2004` correctly). It appears to be an
-account-level or campaign-creation condition. If you hit it, ask Dialog — they are the only
-authority, and this package will not invent a meaning for you.
+### 2012: the sender mask is case-sensitive
+
+`2012` appears in no published table, including the independent implementation above. It was
+identified by controlled test: with every other parameter byte-identical, `source_address=Jothishya`
+returned `2012` while `source_address=JOTHISHYA` returned `1`.
+
+**The mask is matched exactly, capitalisation included.** A mask differing only in case from the one
+registered is rejected identically to one that was never registered — and nothing in the response
+hints that the mask is at fault. Check the exact spelling in your Dialog portal and copy it
+verbatim.
+
+```php
+$e->responseCode?->isConfigurationIssue();  // true for 2012, 2007, 2006
+$e->isBillingIssue();                       // false — topping up will not help
+```
 
 Unknown codes are never guessed at. They surface as `Unknown Dialog response (code: X)`, are stored
 verbatim, and are **not retried** — the request reached Dialog and was refused, so repeating it
@@ -625,11 +635,10 @@ publicly reachable, or the route is POST-only somewhere in front of the app. Che
 **2006 on every send.** Your Dialog account administrator hasn't granted GET-request access. That's
 a portal setting, not a code problem.
 
-**2012 on every send, but the balance check works.** A valid key with a live balance that still
-cannot create a campaign points at account permissions rather than credentials. Confirm with Dialog
-that the account is cleared to send via the URL API and that the sender mask is registered *to that
-account* — a key issued for a different customer id will authenticate fine and still refuse to
-send.
+**2012 on every send, but the balance check works.** Your sender mask does not match a registered
+one. Check its capitalisation first — `Jothishya` and `JOTHISHYA` are different masks as far as
+Dialog is concerned, and only the registered spelling is accepted. Balance checks keep working
+throughout, because they never touch the mask.
 
 ## A note on mobile apps
 
