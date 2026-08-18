@@ -5,6 +5,23 @@ All notable changes to `kasunsampath/laravel-dialog-esms` will be documented her
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2026-08-18
+
+### Fixed
+
+- An unrecognised response code was retried as though no response had arrived. `isRetryable()`
+  returned true whenever the code could not be mapped to a known case, because the fallback meant
+  for transport failures also caught rejections carrying an unknown body. A rejection means the
+  request reached Dialog and was refused, so repeating it verbatim only delays the error. Retries
+  now hinge on whether a response body was received at all.
+
+  Found when `2012` — observed in production, documented nowhere — was silently attempted three
+  times.
+
+### Added
+
+- README notes on `2012`, covering what probing ruled out rather than guessing at a meaning.
+
 ## [1.0.0] - 2026-08-18
 
 ### Added
@@ -56,4 +73,5 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   timezone, so a campaign deferred to 08:00 Asia/Colombo persisted as 13:30 — five and a half hours
   late. The queued job fired correctly either way; only the recorded schedule was wrong.
 
+[1.0.1]: https://github.com/kasunsampath/laravel-dialog-esms/releases/tag/v1.0.1
 [1.0.0]: https://github.com/kasunsampath/laravel-dialog-esms/releases/tag/v1.0.0

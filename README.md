@@ -439,8 +439,16 @@ try {
 | `2010` | Not eligible to consume packaging |
 | `2011` | Transactional error (transient — retried automatically) |
 
-Unknown codes are never guessed at. They surface as `Unknown Dialog response (code: X)` and are
-stored verbatim.
+Codes outside this list exist. **`2012` has been observed in production** and is documented
+nowhere — not by Dialog, not by any other implementation. Probing established what it is *not*: it
+is unaffected by the sender mask, and it fires only after `esmsqk`, `list` and `message` have each
+validated (those still return `2007`, `2005` and `2004` correctly). It appears to be an
+account-level or campaign-creation condition. If you hit it, ask Dialog — they are the only
+authority, and this package will not invent a meaning for you.
+
+Unknown codes are never guessed at. They surface as `Unknown Dialog response (code: X)`, are stored
+verbatim, and are **not retried** — the request reached Dialog and was refused, so repeating it
+changes nothing.
 
 ### Retries
 
@@ -616,6 +624,12 @@ publicly reachable, or the route is POST-only somewhere in front of the app. Che
 
 **2006 on every send.** Your Dialog account administrator hasn't granted GET-request access. That's
 a portal setting, not a code problem.
+
+**2012 on every send, but the balance check works.** A valid key with a live balance that still
+cannot create a campaign points at account permissions rather than credentials. Confirm with Dialog
+that the account is cleared to send via the URL API and that the sender mask is registered *to that
+account* — a key issued for a different customer id will authenticate fine and still refuse to
+send.
 
 ## A note on mobile apps
 
