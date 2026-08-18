@@ -1,0 +1,54 @@
+{
+    "name": "kasunsampath/laravel-dialog-esms",
+    "description": "Laravel integration for Dialog eSMS (Sri Lanka) — sending, bulk campaigns, balance checks, and delivery receipts.",
+    "keywords": ["laravel", "sms", "dialog", "esms", "sri-lanka", "otp", "notification-channel"],
+    "homepage": "https://github.com/kasunsampath/laravel-dialog-esms",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "CodeRay Tech",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/contracts": "^10.0|^11.0|^12.0",
+        "illuminate/http": "^10.0|^11.0|^12.0",
+        "illuminate/support": "^10.0|^11.0|^12.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^8.0|^9.0|^10.0",
+        "phpunit/phpunit": "^10.5|^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "CodeRayTech\\DialogEsms\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CodeRayTech\\DialogEsms\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "CodeRayTech\\DialogEsms\\DialogEsmsServiceProvider"
+            ],
+            "aliases": {
+                "DialogEsms": "CodeRayTech\\DialogEsms\\Facades\\DialogEsms"
+            }
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
