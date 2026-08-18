@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Jobs;
+namespace KasunSampath\DialogEsms\Jobs;
 
-use CodeRayTech\DialogEsms\Contracts\SmsGateway;
-use CodeRayTech\DialogEsms\Enums\CampaignStatus;
-use CodeRayTech\DialogEsms\Exceptions\DialogEsmsException;
-use CodeRayTech\DialogEsms\Models\Campaign;
+use KasunSampath\DialogEsms\Contracts\SmsGateway;
+use KasunSampath\DialogEsms\Enums\CampaignStatus;
+use KasunSampath\DialogEsms\Exceptions\DialogEsmsException;
+use KasunSampath\DialogEsms\Models\Campaign;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -121,11 +121,15 @@ class SendCampaignChunk implements ShouldQueue
             return true;
         }
 
+        // Positional arguments deliberately: this package spans three Laravel
+        // majors, and named arguments bind to parameter names, which are not
+        // part of a framework's public API contract the way the signature
+        // order is.
         $allowed = RateLimiter::attempt(
-            key: 'dialog-esms:send',
-            maxAttempts: $perMinute,
-            callback: static fn (): bool => true,
-            decaySeconds: 60,
+            'dialog-esms:send',
+            $perMinute,
+            static fn (): bool => true,
+            60,
         );
 
         if ($allowed === false) {

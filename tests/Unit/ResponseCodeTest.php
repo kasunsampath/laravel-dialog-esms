@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Tests\Unit;
+namespace KasunSampath\DialogEsms\Tests\Unit;
 
-use CodeRayTech\DialogEsms\Enums\DeliveryStatus;
-use CodeRayTech\DialogEsms\Enums\ResponseCode;
+use KasunSampath\DialogEsms\Enums\DeliveryStatus;
+use KasunSampath\DialogEsms\Enums\ResponseCode;
 use PHPUnit\Framework\TestCase;
 
 class ResponseCodeTest extends TestCase

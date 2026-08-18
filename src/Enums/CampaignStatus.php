@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Enums;
+namespace KasunSampath\DialogEsms\Enums;
 
 enum CampaignStatus: string
 {

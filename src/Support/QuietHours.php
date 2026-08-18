@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Support;
+namespace KasunSampath\DialogEsms\Support;
 
 use Carbon\CarbonImmutable;
 use Carbon\CarbonInterface;

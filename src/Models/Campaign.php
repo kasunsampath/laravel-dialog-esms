@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Models;
+namespace KasunSampath\DialogEsms\Models;
 
-use CodeRayTech\DialogEsms\Enums\CampaignStatus;
-use CodeRayTech\DialogEsms\Enums\DeliveryStatus;
-use CodeRayTech\DialogEsms\Enums\Encoding;
-use CodeRayTech\DialogEsms\Enums\MessageType;
+use KasunSampath\DialogEsms\Enums\CampaignStatus;
+use KasunSampath\DialogEsms\Enums\DeliveryStatus;
+use KasunSampath\DialogEsms\Enums\Encoding;
+use KasunSampath\DialogEsms\Enums\MessageType;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 

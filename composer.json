@@ -6,12 +6,13 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "CodeRay Tech",
+            "name": "Kasun Sampath",
             "role": "Developer"
         }
     ],
     "require": {
         "php": "^8.2",
+        "guzzlehttp/guzzle": "^7.5",
         "illuminate/contracts": "^10.0|^11.0|^12.0",
         "illuminate/http": "^10.0|^11.0|^12.0",
         "illuminate/support": "^10.0|^11.0|^12.0"
@@ -22,12 +23,12 @@
     },
     "autoload": {
         "psr-4": {
-            "CodeRayTech\\DialogEsms\\": "src/"
+            "KasunSampath\\DialogEsms\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "CodeRayTech\\DialogEsms\\Tests\\": "tests/"
+            "KasunSampath\\DialogEsms\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -42,10 +43,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "CodeRayTech\\DialogEsms\\DialogEsmsServiceProvider"
+                "KasunSampath\\DialogEsms\\DialogEsmsServiceProvider"
             ],
             "aliases": {
-                "DialogEsms": "CodeRayTech\\DialogEsms\\Facades\\DialogEsms"
+                "DialogEsms": "KasunSampath\\DialogEsms\\Facades\\DialogEsms"
             }
         }
     },

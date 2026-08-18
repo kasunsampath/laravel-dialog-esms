@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Tests\Feature;
+namespace KasunSampath\DialogEsms\Tests\Feature;
 
 use Carbon\CarbonImmutable;
-use CodeRayTech\DialogEsms\Contracts\SmsGateway;
-use CodeRayTech\DialogEsms\Enums\CampaignStatus;
-use CodeRayTech\DialogEsms\Enums\DeliveryStatus;
-use CodeRayTech\DialogEsms\Enums\Encoding;
-use CodeRayTech\DialogEsms\Enums\MessageType;
-use CodeRayTech\DialogEsms\Exceptions\DialogEsmsException;
-use CodeRayTech\DialogEsms\Facades\DialogEsms;
-use CodeRayTech\DialogEsms\Jobs\SendCampaignChunk;
-use CodeRayTech\DialogEsms\Models\Campaign;
-use CodeRayTech\DialogEsms\Models\OptOut;
-use CodeRayTech\DialogEsms\Models\SmsLog;
-use CodeRayTech\DialogEsms\Tests\TestCase;
+use KasunSampath\DialogEsms\Contracts\SmsGateway;
+use KasunSampath\DialogEsms\Enums\CampaignStatus;
+use KasunSampath\DialogEsms\Enums\DeliveryStatus;
+use KasunSampath\DialogEsms\Enums\Encoding;
+use KasunSampath\DialogEsms\Enums\MessageType;
+use KasunSampath\DialogEsms\Exceptions\DialogEsmsException;
+use KasunSampath\DialogEsms\Facades\DialogEsms;
+use KasunSampath\DialogEsms\Jobs\SendCampaignChunk;
+use KasunSampath\DialogEsms\Models\Campaign;
+use KasunSampath\DialogEsms\Models\OptOut;
+use KasunSampath\DialogEsms\Models\SmsLog;
+use KasunSampath\DialogEsms\Tests\TestCase;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Queue;
 

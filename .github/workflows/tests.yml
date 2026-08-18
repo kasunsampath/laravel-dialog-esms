@@ -10,21 +10,43 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    # Testbench must be pinned alongside Laravel, not left to float. Each
+    # Testbench major targets exactly one Laravel major, so constraining only
+    # illuminate/* lets Composer pick the newest Testbench and then fail with a
+    # conflict against the Laravel version this job is meant to be testing.
     strategy:
       fail-fast: false
       matrix:
-        php: ['8.2', '8.3', '8.4']
-        laravel: ['10.*', '11.*', '12.*']
-        exclude:
-          # Laravel 11 and 12 require PHP 8.2+, which the matrix already
-          # satisfies; Laravel 10 on PHP 8.4 is untested upstream.
-          - php: '8.4'
+        include:
+          - php: '8.2'
             laravel: '10.*'
+            testbench: '8.*'
+          - php: '8.3'
+            laravel: '10.*'
+            testbench: '8.*'
+          - php: '8.2'
+            laravel: '11.*'
+            testbench: '9.*'
+          - php: '8.3'
+            laravel: '11.*'
+            testbench: '9.*'
+          - php: '8.4'
+            laravel: '11.*'
+            testbench: '9.*'
+          - php: '8.2'
+            laravel: '12.*'
+            testbench: '10.*'
+          - php: '8.3'
+            laravel: '12.*'
+            testbench: '10.*'
+          - php: '8.4'
+            laravel: '12.*'
+            testbench: '10.*'
 
     name: PHP ${{ matrix.php }} / Laravel ${{ matrix.laravel }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - uses: shivammathur/setup-php@v2
         with:
@@ -34,8 +56,16 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer require "illuminate/contracts:${{ matrix.laravel }}" --no-interaction --no-update
+          composer require --dev "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
+          composer require \
+            "illuminate/contracts:${{ matrix.laravel }}" \
+            "illuminate/http:${{ matrix.laravel }}" \
+            "illuminate/support:${{ matrix.laravel }}" \
+            --no-interaction --no-update
           composer update --prefer-dist --no-interaction --no-progress
+
+      - name: Show resolved versions
+        run: composer show laravel/framework orchestra/testbench phpunit/phpunit
 
       - name: Run tests
         run: vendor/bin/phpunit

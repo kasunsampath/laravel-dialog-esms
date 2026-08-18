@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Events;
+namespace KasunSampath\DialogEsms\Events;
 
-use CodeRayTech\DialogEsms\Data\SmsResult;
+use KasunSampath\DialogEsms\Data\SmsResult;
 use Illuminate\Foundation\Events\Dispatchable;
 
 /**

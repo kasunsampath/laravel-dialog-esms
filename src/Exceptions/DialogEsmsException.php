@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Exceptions;
+namespace KasunSampath\DialogEsms\Exceptions;
 
-use CodeRayTech\DialogEsms\Enums\ResponseCode;
+use KasunSampath\DialogEsms\Enums\ResponseCode;
 use RuntimeException;
 use Throwable;
 

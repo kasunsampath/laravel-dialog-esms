@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Models;
+namespace KasunSampath\DialogEsms\Models;
 
-use CodeRayTech\DialogEsms\Enums\DeliveryStatus;
-use CodeRayTech\DialogEsms\Enums\Encoding;
-use CodeRayTech\DialogEsms\Enums\MessageType;
-use CodeRayTech\DialogEsms\Support\PhoneNumber;
+use KasunSampath\DialogEsms\Enums\DeliveryStatus;
+use KasunSampath\DialogEsms\Enums\Encoding;
+use KasunSampath\DialogEsms\Enums\MessageType;
+use KasunSampath\DialogEsms\Support\PhoneNumber;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

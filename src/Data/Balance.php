@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Data;
+namespace KasunSampath\DialogEsms\Data;
 
-use CodeRayTech\DialogEsms\Enums\ResponseCode;
+use KasunSampath\DialogEsms\Enums\ResponseCode;
 use JsonSerializable;
 
 /**

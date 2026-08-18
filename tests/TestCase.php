@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Tests;
+namespace KasunSampath\DialogEsms\Tests;
 
-use CodeRayTech\DialogEsms\DialogEsmsServiceProvider;
+use KasunSampath\DialogEsms\DialogEsmsServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Orchestra\Testbench\TestCase as Orchestra;
 

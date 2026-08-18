@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Support;
+namespace KasunSampath\DialogEsms\Support;
 
 /**
  * Normalisation for Sri Lankan mobile numbers.

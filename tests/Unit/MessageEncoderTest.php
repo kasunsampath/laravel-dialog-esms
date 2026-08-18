@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Tests\Unit;
+namespace KasunSampath\DialogEsms\Tests\Unit;
 
-use CodeRayTech\DialogEsms\Data\MessageEstimate;
-use CodeRayTech\DialogEsms\Enums\Encoding;
-use CodeRayTech\DialogEsms\Support\MessageEncoder;
+use KasunSampath\DialogEsms\Data\MessageEstimate;
+use KasunSampath\DialogEsms\Enums\Encoding;
+use KasunSampath\DialogEsms\Support\MessageEncoder;
 use PHPUnit\Framework\TestCase;
 
 class MessageEncoderTest extends TestCase

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Notifications;
+namespace KasunSampath\DialogEsms\Notifications;
 
 class DialogEsmsMessage
 {

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Notifications;
+namespace KasunSampath\DialogEsms\Notifications;
 
-use CodeRayTech\DialogEsms\Contracts\SmsGateway;
-use CodeRayTech\DialogEsms\Data\SmsResult;
-use CodeRayTech\DialogEsms\Exceptions\DialogEsmsException;
+use KasunSampath\DialogEsms\Contracts\SmsGateway;
+use KasunSampath\DialogEsms\Data\SmsResult;
+use KasunSampath\DialogEsms\Exceptions\DialogEsmsException;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Log;
 

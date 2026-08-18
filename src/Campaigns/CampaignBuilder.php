@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Campaigns;
+namespace KasunSampath\DialogEsms\Campaigns;
 
 use Carbon\CarbonImmutable;
 use Carbon\CarbonInterface;
-use CodeRayTech\DialogEsms\Data\MessageEstimate;
-use CodeRayTech\DialogEsms\Enums\CampaignStatus;
-use CodeRayTech\DialogEsms\Enums\MessageType;
-use CodeRayTech\DialogEsms\Exceptions\DialogEsmsException;
-use CodeRayTech\DialogEsms\Jobs\SendCampaignChunk;
-use CodeRayTech\DialogEsms\Models\Campaign;
-use CodeRayTech\DialogEsms\Models\OptOut;
-use CodeRayTech\DialogEsms\Models\SmsTemplate;
-use CodeRayTech\DialogEsms\Support\PhoneNumber;
-use CodeRayTech\DialogEsms\Support\QuietHours;
+use KasunSampath\DialogEsms\Data\MessageEstimate;
+use KasunSampath\DialogEsms\Enums\CampaignStatus;
+use KasunSampath\DialogEsms\Enums\MessageType;
+use KasunSampath\DialogEsms\Exceptions\DialogEsmsException;
+use KasunSampath\DialogEsms\Jobs\SendCampaignChunk;
+use KasunSampath\DialogEsms\Models\Campaign;
+use KasunSampath\DialogEsms\Models\OptOut;
+use KasunSampath\DialogEsms\Models\SmsTemplate;
+use KasunSampath\DialogEsms\Support\PhoneNumber;
+use KasunSampath\DialogEsms\Support\QuietHours;
 use Illuminate\Support\Facades\Bus;
 
 /**

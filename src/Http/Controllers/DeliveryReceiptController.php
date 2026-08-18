@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Http\Controllers;
+namespace KasunSampath\DialogEsms\Http\Controllers;
 
-use CodeRayTech\DialogEsms\Enums\DeliveryStatus;
-use CodeRayTech\DialogEsms\Events\ReceiptReceived;
-use CodeRayTech\DialogEsms\Events\SmsDelivered;
-use CodeRayTech\DialogEsms\Models\SmsLog;
-use CodeRayTech\DialogEsms\Models\SmsWebhook;
+use KasunSampath\DialogEsms\Enums\DeliveryStatus;
+use KasunSampath\DialogEsms\Events\ReceiptReceived;
+use KasunSampath\DialogEsms\Events\SmsDelivered;
+use KasunSampath\DialogEsms\Models\SmsLog;
+use KasunSampath\DialogEsms\Models\SmsWebhook;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;

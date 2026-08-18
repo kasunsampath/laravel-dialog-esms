@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Console;
+namespace KasunSampath\DialogEsms\Console;
 
-use CodeRayTech\DialogEsms\Contracts\SmsGateway;
+use KasunSampath\DialogEsms\Contracts\SmsGateway;
 use Illuminate\Console\Command;
 
 class CheckBalanceCommand extends Command

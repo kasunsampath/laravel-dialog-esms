@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Enums;
+namespace KasunSampath\DialogEsms\Enums;
 
 /**
  * The wire encoding an SMS will use, which determines how many messages you

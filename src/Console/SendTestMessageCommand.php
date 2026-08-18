@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Console;
+namespace KasunSampath\DialogEsms\Console;
 
-use CodeRayTech\DialogEsms\Contracts\SmsGateway;
-use CodeRayTech\DialogEsms\Exceptions\DialogEsmsException;
+use KasunSampath\DialogEsms\Contracts\SmsGateway;
+use KasunSampath\DialogEsms\Exceptions\DialogEsmsException;
 use Illuminate\Console\Command;
 
 /**

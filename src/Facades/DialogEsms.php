@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Facades;
+namespace KasunSampath\DialogEsms\Facades;
 
-use CodeRayTech\DialogEsms\Campaigns\CampaignBuilder;
-use CodeRayTech\DialogEsms\Contracts\SmsGateway;
-use CodeRayTech\DialogEsms\Data\Balance;
-use CodeRayTech\DialogEsms\Data\BulkResult;
-use CodeRayTech\DialogEsms\Data\MessageEstimate;
-use CodeRayTech\DialogEsms\Data\SmsResult;
-use CodeRayTech\DialogEsms\DialogEsmsClient;
-use CodeRayTech\DialogEsms\Enums\DeliveryStatus;
-use CodeRayTech\DialogEsms\Testing\DialogEsmsFake;
+use KasunSampath\DialogEsms\Campaigns\CampaignBuilder;
+use KasunSampath\DialogEsms\Contracts\SmsGateway;
+use KasunSampath\DialogEsms\Data\Balance;
+use KasunSampath\DialogEsms\Data\BulkResult;
+use KasunSampath\DialogEsms\Data\MessageEstimate;
+use KasunSampath\DialogEsms\Data\SmsResult;
+use KasunSampath\DialogEsms\DialogEsmsClient;
+use KasunSampath\DialogEsms\Enums\DeliveryStatus;
+use KasunSampath\DialogEsms\Testing\DialogEsmsFake;
 use Illuminate\Support\Facades\Facade;
 
 /**

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Console;
+namespace KasunSampath\DialogEsms\Console;
 
-use CodeRayTech\DialogEsms\Data\MessageEstimate;
-use CodeRayTech\DialogEsms\Enums\Encoding;
+use KasunSampath\DialogEsms\Data\MessageEstimate;
+use KasunSampath\DialogEsms\Enums\Encoding;
 use Illuminate\Console\Command;
 
 /**

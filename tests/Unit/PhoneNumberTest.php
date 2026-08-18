@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Tests\Unit;
+namespace KasunSampath\DialogEsms\Tests\Unit;
 
-use CodeRayTech\DialogEsms\Support\PhoneNumber;
+use KasunSampath\DialogEsms\Support\PhoneNumber;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Tests\Feature;
+namespace KasunSampath\DialogEsms\Tests\Feature;
 
-use CodeRayTech\DialogEsms\Enums\DeliveryStatus;
-use CodeRayTech\DialogEsms\Events\SmsDelivered;
-use CodeRayTech\DialogEsms\Facades\DialogEsms;
-use CodeRayTech\DialogEsms\Models\SmsLog;
-use CodeRayTech\DialogEsms\Models\SmsWebhook;
-use CodeRayTech\DialogEsms\Tests\TestCase;
+use KasunSampath\DialogEsms\Enums\DeliveryStatus;
+use KasunSampath\DialogEsms\Events\SmsDelivered;
+use KasunSampath\DialogEsms\Facades\DialogEsms;
+use KasunSampath\DialogEsms\Models\SmsLog;
+use KasunSampath\DialogEsms\Models\SmsWebhook;
+use KasunSampath\DialogEsms\Tests\TestCase;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Http;
 

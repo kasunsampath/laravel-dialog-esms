@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Support;
+namespace KasunSampath\DialogEsms\Support;
 
-use CodeRayTech\DialogEsms\Enums\Encoding;
+use KasunSampath\DialogEsms\Enums\Encoding;
 
 /**
  * Works out how many SMS a piece of text will actually cost.

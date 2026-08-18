@@ -2,25 +2,25 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms;
+namespace KasunSampath\DialogEsms;
 
-use CodeRayTech\DialogEsms\Campaigns\CampaignBuilder;
-use CodeRayTech\DialogEsms\Contracts\SmsGateway;
-use CodeRayTech\DialogEsms\Data\Balance;
-use CodeRayTech\DialogEsms\Data\BulkResult;
-use CodeRayTech\DialogEsms\Data\MessageEstimate;
-use CodeRayTech\DialogEsms\Data\SmsResult;
-use CodeRayTech\DialogEsms\Enums\DeliveryStatus;
-use CodeRayTech\DialogEsms\Enums\MessageType;
-use CodeRayTech\DialogEsms\Enums\ResponseCode;
-use CodeRayTech\DialogEsms\Events\SmsFailed;
-use CodeRayTech\DialogEsms\Events\SmsSent;
-use CodeRayTech\DialogEsms\Exceptions\DialogEsmsException;
-use CodeRayTech\DialogEsms\Models\OptOut;
-use CodeRayTech\DialogEsms\Models\SmsLog;
-use CodeRayTech\DialogEsms\Support\MessageEncoder;
-use CodeRayTech\DialogEsms\Support\PhoneNumber;
-use CodeRayTech\DialogEsms\Support\QuietHours;
+use KasunSampath\DialogEsms\Campaigns\CampaignBuilder;
+use KasunSampath\DialogEsms\Contracts\SmsGateway;
+use KasunSampath\DialogEsms\Data\Balance;
+use KasunSampath\DialogEsms\Data\BulkResult;
+use KasunSampath\DialogEsms\Data\MessageEstimate;
+use KasunSampath\DialogEsms\Data\SmsResult;
+use KasunSampath\DialogEsms\Enums\DeliveryStatus;
+use KasunSampath\DialogEsms\Enums\MessageType;
+use KasunSampath\DialogEsms\Enums\ResponseCode;
+use KasunSampath\DialogEsms\Events\SmsFailed;
+use KasunSampath\DialogEsms\Events\SmsSent;
+use KasunSampath\DialogEsms\Exceptions\DialogEsmsException;
+use KasunSampath\DialogEsms\Models\OptOut;
+use KasunSampath\DialogEsms\Models\SmsLog;
+use KasunSampath\DialogEsms\Support\MessageEncoder;
+use KasunSampath\DialogEsms\Support\PhoneNumber;
+use KasunSampath\DialogEsms\Support\QuietHours;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Client\ConnectionException;

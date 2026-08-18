@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Tests\Unit;
+namespace KasunSampath\DialogEsms\Tests\Unit;
 
 use Carbon\CarbonImmutable;
-use CodeRayTech\DialogEsms\Support\QuietHours;
+use KasunSampath\DialogEsms\Support\QuietHours;
 use PHPUnit\Framework\TestCase;
 
 class QuietHoursTest extends TestCase

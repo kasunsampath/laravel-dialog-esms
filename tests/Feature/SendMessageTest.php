@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Tests\Feature;
+namespace KasunSampath\DialogEsms\Tests\Feature;
 
-use CodeRayTech\DialogEsms\Enums\DeliveryStatus;
-use CodeRayTech\DialogEsms\Enums\ResponseCode;
-use CodeRayTech\DialogEsms\Events\SmsFailed;
-use CodeRayTech\DialogEsms\Events\SmsSent;
-use CodeRayTech\DialogEsms\Exceptions\DialogEsmsException;
-use CodeRayTech\DialogEsms\Facades\DialogEsms;
-use CodeRayTech\DialogEsms\Models\SmsLog;
-use CodeRayTech\DialogEsms\Tests\TestCase;
+use KasunSampath\DialogEsms\Enums\DeliveryStatus;
+use KasunSampath\DialogEsms\Enums\ResponseCode;
+use KasunSampath\DialogEsms\Events\SmsFailed;
+use KasunSampath\DialogEsms\Events\SmsSent;
+use KasunSampath\DialogEsms\Exceptions\DialogEsmsException;
+use KasunSampath\DialogEsms\Facades\DialogEsms;
+use KasunSampath\DialogEsms\Models\SmsLog;
+use KasunSampath\DialogEsms\Tests\TestCase;
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Http;

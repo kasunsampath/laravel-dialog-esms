@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Models;
+namespace KasunSampath\DialogEsms\Models;
 
-use CodeRayTech\DialogEsms\Support\PhoneNumber;
+use KasunSampath\DialogEsms\Support\PhoneNumber;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 

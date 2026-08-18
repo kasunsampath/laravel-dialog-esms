@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Testing;
+namespace KasunSampath\DialogEsms\Testing;
 
-use CodeRayTech\DialogEsms\Campaigns\CampaignBuilder;
-use CodeRayTech\DialogEsms\Contracts\SmsGateway;
-use CodeRayTech\DialogEsms\Data\Balance;
-use CodeRayTech\DialogEsms\Data\BulkResult;
-use CodeRayTech\DialogEsms\Data\MessageEstimate;
-use CodeRayTech\DialogEsms\Data\SmsResult;
-use CodeRayTech\DialogEsms\Enums\ResponseCode;
-use CodeRayTech\DialogEsms\Exceptions\DialogEsmsException;
-use CodeRayTech\DialogEsms\Support\PhoneNumber;
+use KasunSampath\DialogEsms\Campaigns\CampaignBuilder;
+use KasunSampath\DialogEsms\Contracts\SmsGateway;
+use KasunSampath\DialogEsms\Data\Balance;
+use KasunSampath\DialogEsms\Data\BulkResult;
+use KasunSampath\DialogEsms\Data\MessageEstimate;
+use KasunSampath\DialogEsms\Data\SmsResult;
+use KasunSampath\DialogEsms\Enums\ResponseCode;
+use KasunSampath\DialogEsms\Exceptions\DialogEsmsException;
+use KasunSampath\DialogEsms\Support\PhoneNumber;
 use PHPUnit\Framework\Assert;
 
 /**

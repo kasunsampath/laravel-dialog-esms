@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Contracts;
+namespace KasunSampath\DialogEsms\Contracts;
 
-use CodeRayTech\DialogEsms\Data\Balance;
-use CodeRayTech\DialogEsms\Data\BulkResult;
-use CodeRayTech\DialogEsms\Data\MessageEstimate;
-use CodeRayTech\DialogEsms\Data\SmsResult;
+use KasunSampath\DialogEsms\Data\Balance;
+use KasunSampath\DialogEsms\Data\BulkResult;
+use KasunSampath\DialogEsms\Data\MessageEstimate;
+use KasunSampath\DialogEsms\Data\SmsResult;
 
 interface SmsGateway
 {

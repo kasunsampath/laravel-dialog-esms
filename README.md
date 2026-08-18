@@ -5,7 +5,7 @@ Laravel integration for [Dialog eSMS](https://e-sms.dialog.lk) — Sri Lanka's D
 Sending, bulk campaigns, wallet balance, delivery receipts, a notification channel, and a test fake.
 
 ```php
-use CodeRayTech\DialogEsms\Facades\DialogEsms;
+use KasunSampath\DialogEsms\Facades\DialogEsms;
 
 DialogEsms::send('0772345678', 'Your verification code is 4821');
 ```
@@ -115,7 +115,7 @@ unregistered mask surfaces here in one second instead of during a login flow.
 ## Sending
 
 ```php
-use CodeRayTech\DialogEsms\Facades\DialogEsms;
+use KasunSampath\DialogEsms\Facades\DialogEsms;
 
 $result = DialogEsms::send('0772345678', 'Your code is 4821');
 
@@ -233,7 +233,7 @@ use a campaign: chunks go out as queued jobs, so a large run is rate limited,
 survives a worker restart, and can be cancelled halfway.
 
 ```php
-use CodeRayTech\DialogEsms\Facades\DialogEsms;
+use KasunSampath\DialogEsms\Facades\DialogEsms;
 
 $campaign = DialogEsms::campaign('October flash sale')
     ->message('Sale ends Friday. Reply STOP to unsubscribe.')
@@ -277,7 +277,7 @@ is a compliance problem, not a shortcut.
 ### Opt-outs
 
 ```php
-use CodeRayTech\DialogEsms\Models\OptOut;
+use KasunSampath\DialogEsms\Models\OptOut;
 
 OptOut::add('0772345678', reason: 'replied STOP');
 OptOut::add('0772345678', scope: 'newsletter');   // this list only
@@ -356,7 +356,7 @@ $campaign->cancel();
 ## Templates
 
 ```php
-use CodeRayTech\DialogEsms\Models\SmsTemplate;
+use KasunSampath\DialogEsms\Models\SmsTemplate;
 
 SmsTemplate::create([
     'name' => 'otp',
@@ -391,8 +391,8 @@ SmsTemplate::named('order_confirmed')->estimate(['ref' => $ref], recipients: 500
 Every failure throws `DialogEsmsException`. Branch on the code, never on the message text:
 
 ```php
-use CodeRayTech\DialogEsms\Exceptions\DialogEsmsException;
-use CodeRayTech\DialogEsms\Enums\ResponseCode;
+use KasunSampath\DialogEsms\Exceptions\DialogEsmsException;
+use KasunSampath\DialogEsms\Enums\ResponseCode;
 
 try {
     DialogEsms::send($phone, $message);
@@ -471,7 +471,7 @@ callback, and the stored payloads are the only record of what the format actuall
 uncorrelated receipts as an early warning that the format changed:
 
 ```php
-use CodeRayTech\DialogEsms\Models\SmsWebhook;
+use KasunSampath\DialogEsms\Models\SmsWebhook;
 
 SmsWebhook::uncorrelated()->latest()->get();
 ```
@@ -485,7 +485,7 @@ genuine receipt.
 ## Events
 
 ```php
-use CodeRayTech\DialogEsms\Events\{SmsSent, SmsFailed, SmsDelivered, ReceiptReceived};
+use KasunSampath\DialogEsms\Events\{SmsSent, SmsFailed, SmsDelivered, ReceiptReceived};
 ```
 
 | Event | Fired when |
@@ -508,7 +508,7 @@ Event::listen(function (SmsFailed $event) {
 ## Notification channel
 
 ```php
-use CodeRayTech\DialogEsms\Notifications\DialogEsmsMessage;
+use KasunSampath\DialogEsms\Notifications\DialogEsmsMessage;
 
 class VerificationCode extends Notification
 {
@@ -545,7 +545,7 @@ the notification stack. Listen for `SmsFailed` to react to it.
 ## Testing
 
 ```php
-use CodeRayTech\DialogEsms\Facades\DialogEsms;
+use KasunSampath\DialogEsms\Facades\DialogEsms;
 
 public function test_it_sends_a_verification_code(): void
 {
@@ -578,7 +578,7 @@ Sends then return `$result->skipped === true` rather than throwing.
 ## Querying logs
 
 ```php
-use CodeRayTech\DialogEsms\Models\SmsLog;
+use KasunSampath\DialogEsms\Models\SmsLog;
 
 SmsLog::delivered()->recent(7)->count();
 SmsLog::failed()->recent(30)->get();

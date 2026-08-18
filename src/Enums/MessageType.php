@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Enums;
+namespace KasunSampath\DialogEsms\Enums;
 
 /**
  * What a message is for, which decides which safety rules apply to it.

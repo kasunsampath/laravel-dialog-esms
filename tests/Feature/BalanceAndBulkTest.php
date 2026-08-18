@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Tests\Feature;
+namespace KasunSampath\DialogEsms\Tests\Feature;
 
-use CodeRayTech\DialogEsms\Enums\ResponseCode;
-use CodeRayTech\DialogEsms\Exceptions\DialogEsmsException;
-use CodeRayTech\DialogEsms\Facades\DialogEsms;
-use CodeRayTech\DialogEsms\Tests\TestCase;
+use KasunSampath\DialogEsms\Enums\ResponseCode;
+use KasunSampath\DialogEsms\Exceptions\DialogEsmsException;
+use KasunSampath\DialogEsms\Facades\DialogEsms;
+use KasunSampath\DialogEsms\Tests\TestCase;
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Http;
 

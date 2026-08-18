@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Data;
+namespace KasunSampath\DialogEsms\Data;
 
-use CodeRayTech\DialogEsms\Enums\Encoding;
-use CodeRayTech\DialogEsms\Support\MessageEncoder;
+use KasunSampath\DialogEsms\Enums\Encoding;
+use KasunSampath\DialogEsms\Support\MessageEncoder;
 use JsonSerializable;
 
 /**

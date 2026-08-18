@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms;
+namespace KasunSampath\DialogEsms;
 
-use CodeRayTech\DialogEsms\Contracts\SmsGateway;
-use CodeRayTech\DialogEsms\Http\Controllers\DeliveryReceiptController;
-use CodeRayTech\DialogEsms\Notifications\DialogEsmsChannel;
+use KasunSampath\DialogEsms\Contracts\SmsGateway;
+use KasunSampath\DialogEsms\Http\Controllers\DeliveryReceiptController;
+use KasunSampath\DialogEsms\Notifications\DialogEsmsChannel;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Http\Client\Factory as HttpFactory;
 use Illuminate\Notifications\ChannelManager;

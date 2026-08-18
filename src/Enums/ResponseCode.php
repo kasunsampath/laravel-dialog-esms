@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Enums;
+namespace KasunSampath\DialogEsms\Enums;
 
 /**
  * Response codes returned by the Dialog eSMS `message-via-url` API.

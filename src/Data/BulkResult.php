@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CodeRayTech\DialogEsms\Data;
+namespace KasunSampath\DialogEsms\Data;
 
 use Countable;
 use JsonSerializable;
